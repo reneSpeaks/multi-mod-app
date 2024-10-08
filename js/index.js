@@ -1,6 +1,7 @@
-import { getData } from "./modules/network.js";
+import { getItem } from "./modules/network.js";
+import { addItemCard } from "./modules/ui.js";
 
-window.onload = () => {
+ window.onload = async () => {
     const reload = document.getElementById('reload');
 
     reload.addEventListener('click', () => {
@@ -8,5 +9,13 @@ window.onload = () => {
         localStorage.clear();
     });
 
-    getData();
+    for(let index = 1; index <= 4; index++) {
+        try {
+            const newItem = await getItem(index);
+            addItemCard(newItem);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 }
+
