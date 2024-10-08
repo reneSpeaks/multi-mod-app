@@ -4,8 +4,20 @@
 // 'https://fakestoreapi.com/products?limit=5' LIMIT PRODUCTS TO SPECIFIC NUMBER
 // 'https://fakestoreapi.com/products?sort=desc' SORT RESULTS
 
-function getData() {
-    const apiPath = 'https://fakestoreapi.com/products';
+import { addItemCard } from './ui.js';
+
+export class Item {
+    constructor(id, title, price, description, image) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+        this.description = description;
+        this.image = image;
+    }
+}
+
+export function getData() {
+    const apiPath = 'https://fakestoreapi.com/products?limit=6';
 
     fetch(apiPath)
         .then((result) => {
@@ -13,10 +25,12 @@ function getData() {
             return result.json();
         })
         .then((data) => {
-            console.log(data)
+            for (const item of data) {
+                const newItem = new Item(item.id, item.title, item.price, item.description, item.image);
+                addItemCard(newItem);
+            }
         })
         .catch((error) => {
             console.error(error);
         })
 }
-
