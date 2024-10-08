@@ -42,3 +42,19 @@ export function addItemCard(item) {
     // CREATE EVENT LISTENER FOR ADDING TO LOCAL STORAGE/SESSION
     cardCartButton.addEventListener('click', () => addToLocalStorage(item));
 }
+
+// TODO: CHANGE CREATING ELEMENTS USING GENERIC FUNCTION FROM BELOW
+
+const createElement = (tag, text, parent, attributes) => {
+    const element = document.createElement(tag);
+    element.textContent = text;
+
+    if (attributes) {
+        for (const attribute of attributes) {
+            element.setAttribute(attribute, attributes[attribute]);
+        }
+    }
+
+    parent.appendChild(element);
+    return element;
+}
