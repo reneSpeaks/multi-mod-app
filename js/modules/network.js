@@ -17,7 +17,7 @@ export class Item {
 }
 
 export function getData() {
-    const apiPath = 'https://fakestoreapi.com/products?limit=6';
+    const apiPath = 'https://fakestoreapi.com/products?limit=4';
 
     fetch(apiPath)
         .then((result) => {

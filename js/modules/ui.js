@@ -1,6 +1,6 @@
 // FUNCTIONS RELATED TO: creating and manipulating DOM elements
 
-import { addToLocalStorage, addToLocalSession} from "./storage.js";
+import { addToLocalStorage} from "./storage.js";
 
 export function addItemCard(item) {
     // GET ITEM CARDS SECTION
